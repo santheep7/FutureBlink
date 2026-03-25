@@ -157,10 +157,10 @@ export default function App() {
   return (
     <main className="app-shell">
       <section className="hero-panel">
-        <p className="eyebrow">OpenRouter + React Flow</p>
-        <h1>Prompt-to-response flow</h1>
+        <p className="eyebrow">Powered by OpenRouter</p>
+        <h1>AskFlow</h1>
         <p className="hero-copy">
-          Type a prompt in the left node, run the flow, and save the exchange to MongoDB.
+          Ask anything. Get instant AI answers.
         </p>
         <div className="toolbar">
           <div className="toolbar-buttons">
