@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg: #f6efe8;
+  --panel: rgba(255, 250, 246, 0.82);
+  --panel-strong: #fffaf6;
+  --ink: #21150f;
+  --muted: #65544d;
+  --line: #d8c2b4;
+  --accent: #b24c2f;
+  --accent-dark: #7c311c;
+  --success: #2d7a58;
+  --danger: #b13a30;
+  --shadow: 0 24px 80px rgba(71, 37, 18, 0.12);
+  --radius: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 32%),
+    linear-gradient(135deg, #f7efe4 0%, #efd5bf 48%, #f3e8dc 100%);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 32px;
+  display: grid;
+  grid-template-rows: auto minmax(560px, 1fr);
+  gap: 24px;
+}
+
+.hero-panel,
+.canvas-panel {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--radius);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 28px;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 0.95;
+}
+
+.hero-copy {
+  max-width: 700px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.toolbar {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.toolbar-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.run-button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: linear-gradient(135deg, var(--accent) 0%, #d67c48 100%);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 18px 40px rgba(178, 76, 47, 0.28);
+}
+
+.run-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.run-button:disabled {
+  cursor: wait;
+  opacity: 0.74;
+}
+
+.save-button {
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  padding: 14px 22px;
+  background: transparent;
+  color: var(--accent);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.save-button:hover:not(:disabled) {
+  background: var(--accent);
+  color: white;
+}
+
+.save-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.canvas-panel {
+  overflow: hidden;
+}
+
+.react-flow__renderer {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.68), transparent 40%),
+    linear-gradient(180deg, rgba(255, 248, 242, 0.95), rgba(244, 233, 223, 0.8));
+}
+
+.flow-node {
+  width: 320px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  box-shadow: 0 18px 32px rgba(61, 31, 17, 0.1);
+  padding: 18px;
+}
+
+.node-header {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.node-kicker {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.node-textarea,
+.result-box {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 16px;
+  border: 1px solid #e7d7cb;
+  background: #fffdfa;
+  padding: 14px;
+  color: var(--ink);
+}
+
+.node-textarea {
+  resize: none;
+  outline: none;
+}
+
+.node-textarea:focus {
+  border-color: var(--accent);
+}
+
+.result-box {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.result-loading {
+  color: var(--accent-dark);
+}
+
+.result-error {
+  color: var(--danger);
+}
+
+.result-done {
+  color: var(--success);
+}
+
+.result-idle {
+  color: var(--muted);
+}
+
+.node-handle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid white;
+  background: var(--accent);
+}
+
+.react-flow__controls,
+.react-flow__minimap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(61, 31, 17, 0.12);
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 16px;
+    grid-template-rows: auto minmax(460px, 1fr);
+  }
+
+  .hero-panel {
+    padding: 20px;
+  }
+
+  .flow-node {
+    width: 260px;
+  }
+}
