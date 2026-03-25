@@ -78,7 +78,7 @@ app.post('/api/ask-ai', async (req, res) => {
           headers: {
             Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
             'Content-Type': 'application/json',
-            'HTTP-Referer': process.env.OPENROUTER_SITE_URL || 'http://localhost:5173',
+            'HTTP-Referer': process.env.OPENROUTER_SITE_URL || 'https://futureblink-y358.onrender.com',
             'X-Title': process.env.OPENROUTER_APP_NAME || 'AI Flow Runner',
           },
         },
